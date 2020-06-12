@@ -21,31 +21,31 @@ rm(list = ls())                             ## clear environment
 lake <- tk_select.list(c("Acton", "Burr Oak", "Pleasant Hill"), title = "Pick a lake:")
 
 ## Read in shoreline polygons saved in reservoir data files folder
-shoreline <- readOGR(paste("C:/Users/richa/OneDrive/Desktop/Reservoir Hypoxia GRP/Reservoir data files/",
+shoreline <- readOGR(paste("C:/Users/richa/OneDrive/Desktop/GRP 3x3/Reservoir data files/",
                                  lake, "/", lake, "_lake.shp", sep = ""))
 
 ## Read in depth data
-depthdata.rg <- readOGR(paste("C:/Users/richa/OneDrive/Desktop/Reservoir Hypoxia GRP/Reservoir data files/",
+depthdata.rg <- readOGR(paste("C:/Users/richa/OneDrive/Desktop/GRP 3x3/Reservoir data files/",
                              lake, sep = ""), paste(lake, "_depths", sep = ""))
 
 ## Read in lake acoustic data
-allHAD <- read.csv(paste("C:/Users/richa/OneDrive/Desktop/Reservoir Hypoxia GRP/Reservoir data files/", lake,
+allHAD <- read.csv(paste("C:/Users/richa/OneDrive/Desktop/GRP 3x3/Reservoir data files/", lake,
                          "/", lake, "_acoustics.csv", sep = ""))
 allHAD$Date <- as.Date(allHAD$Date, "%m/%d/%Y")  ## changes date format
 
 
 ##  Read in water quality data
-allWQ <- read.csv(paste("C:/Users/richa/OneDrive/Desktop/Reservoir Hypoxia GRP/Reservoir data files/", lake,
+allWQ <- read.csv(paste("C:/Users/richa/OneDrive/Desktop/GRP 3x3/Reservoir data files/", lake,
                      "/", lake, "_WQ.csv", sep = ""))
 allWQ$Trip_Date <- as.Date(allWQ$Trip_Date, "%m/%d/%Y")  ## changes date format
 
 ##  Read in trawl data
-alltrawl <- read.csv(paste("C:/Users/richa/OneDrive/Desktop/Reservoir Hypoxia GRP/Reservoir data files/", lake,
+alltrawl <- read.csv(paste("C:/Users/richa/OneDrive/Desktop/GRP 3x3/Reservoir data files/", lake,
                            "/", lake, "_trawl.csv", sep = ""))
 alltrawl$Trip_Date <- as.Date(alltrawl$Trip_Date, "%m/%d/%Y")  ## changes date format
 
 #Read in transect data
-xsectline <- read.csv(paste("C:/Users/richa/OneDrive/Desktop/Reservoir Hypoxia GRP/Reservoir data files/",
+xsectline <- read.csv(paste("C:/Users/richa/OneDrive/Desktop/GRP 3x3/Reservoir data files/",
                              lake, "/", lake, "_xsect.csv", sep = ""))
 
 ## Input date for simulation and create 5-d window to include sampling not on exact day
@@ -128,7 +128,7 @@ depthsBIOM = paste("mB", 0:maxz, sep = "")
 
 
 ##### Reads bioenergetic database #####
-bioparam <- read.csv("C:/Users/richa/OneDrive/Desktop/Reservoir Hypoxia GRP/Reservoir data files/Bioenergetics.csv")
+bioparam <- read.csv("C:/Users/richa/OneDrive/Desktop/GRP 3x3/Reservoir data files/Bioenergetics.csv")
 
 
 ##### Subset and process depth data  #####
@@ -718,7 +718,7 @@ soi <- tk_select.list(as.character(soichar), title = "Pick a Species:")
   wChCatED = 5437 # Eggleton & Schramm 2002
   wBSilvED = 4392 # Pope et al. 1996
   wWBassED = 4392 # Bryan et al. 1996
-  wHBassED = 5935 # average juvenile HSB from Marcek et al. 2020
+  wHBassED = 5023 # used age-0 SB ED from Hartman & Brandt 1995
   wWCrapED = 4184 # Zweifel 2000; Bajer et al. 2004
   wBCrapED = 4184 # Zweifel 2000; Bajer et al. 2004 (value for w. crappie)
   wWarMtED = 4852 # Miranda & Muncy 1989 (value for sunfishes)
